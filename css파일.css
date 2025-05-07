@@ -1,37 +1,823 @@
-body {
+/* 기본 스타일 */
+* {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f3f3f3;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    line-height: 1.6;
     color: #333;
-    overflow-x: hidden;
-  }
-  
-  .portfolio {
+    background-color: #f9f9f9;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 80px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+    color: #333;
+}
+
+/* 헤더 */
+header {
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo {
+    font-size: 1.3rem;
+    font-weight: 700;
+    max-width: 30%;
+}
+
+.nav-links {
+    display: flex;
+    max-width: 65%;
+    flex-wrap: wrap;
+}
+
+.nav-links li {
+    margin-left: 15px;
+}
+
+.nav-links a {
+    font-weight: 500;
+    transition: color 0.3s;
+    font-size: 0.9rem;
+}
+
+.nav-links a:hover {
+    color: #4a6cf7;
+}
+
+/* 모바일 메뉴 버튼 */
+.menu-btn {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+/* 히어로 섹션 */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background-color: #f5f8ff;
+    margin-top: 70px;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    color: #666;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #4a6cf7;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #3a5bd9;
+}
+
+/* 소개 섹션 */
+.about {
+    background-color: white;
+}
+
+.about-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 50px;
+}
+
+.about-img {
+    flex: 0.5;
+    border-radius: 10px;
+    overflow: hidden;
+    max-height: 300px;
+}
+
+.about-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 300px;
+    object-fit: cover;
+}
+
+.about-text {
+    flex: 1.5;
+}
+
+.about-text h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    margin-bottom: 15px;
+    color: #666;
+}
+
+/* 프로필 테이블 스타일 */
+.profile-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.profile-table th, 
+.profile-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.profile-table th {
+    background-color: #f5f8ff;
+    font-weight: 600;
+    width: 30%;
+}
+
+.profile-table td {
+    color: #666;
+}
+
+/* 강점 섹션 */
+.skills {
+    background-color: #f5f8ff;
+}
+
+.skills-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    gap: 30px;
+}
+
+.skills-row {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+}
+
+.skills-row:nth-child(2) {
+    padding: 0 15%;
+}
+
+.skill-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.3s;
+    flex: 1;
+}
+
+.skill-card:hover {
+    transform: translateY(-10px);
+}
+
+.skill-card i {
+    font-size: 3rem;
+    color: #4a6cf7;
+    margin-bottom: 20px;
+}
+
+.skill-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.skill-card p {
+    color: #666;
+}
+
+/* 경험 섹션 */
+.projects {
+    background-color: white;
+}
+
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(550px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+}
+
+.project-img {
+    height: 200px;
+    overflow: hidden;
+}
+
+.project-img img {
     width: 100%;
-  }
-  
-  .item {
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.project-card:hover .project-img img {
+    transform: scale(1.1);
+}
+
+.project-content {
+    padding: 20px;
+    background-color: white;
+}
+
+.project-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.project-content p {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.project-links {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.project-links a {
+    color: white;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.github-btn {
+    background-color: #333;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.github-btn:hover {
+    background-color: #555;
+    transform: translateY(-2px);
+}
+
+.star-l-btn {
+    background-color: #4a6cf7;
+    box-shadow: 0 2px 5px rgba(74,108,247,0.3);
+    cursor: pointer;
+}
+
+.star-l-btn:hover {
+    background-color: #3a5bd9;
+    transform: translateY(-2px);
+}
+
+.star-l-btn.disabled {
+    background-color: #a0afd7;
+    cursor: not-allowed;
+}
+
+.star-l-btn.disabled:hover {
+    background-color: #a0afd7;
+    transform: none;
+}
+
+.experience-details {
+    margin-top: 15px;
+}
+
+.experience-details h4 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: #4a6cf7;
+}
+
+.experience-details ul {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+.experience-details ul li {
+    margin-bottom: 5px;
+    list-style-type: disc;
+}
+
+.experience-meta {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.experience-meta span {
+    background-color: #f5f8ff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.core-competencies {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.core-competencies span {
+    background-color: #4a6cf7;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+/* 새로운 섹션 스타일 */
+.career-goals, .plan, .future {
+    padding: 80px 0;
+}
+
+.career-goals {
+    background-color: #f5f8ff;
+}
+
+.plan {
+    background-color: white;
+}
+
+.future {
+    background-color: #f5f8ff;
+}
+
+.career-goals-container, .plan-container, .future-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.goal-card, .plan-card, .future-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
+}
+
+.career-goals .goal-card {
+    background-color: white;
+}
+
+.plan .plan-card {
+    background-color: #f9f9f9;
+}
+
+.goal-card:hover, .plan-card:hover, .future-card:hover {
+    transform: translateY(-5px);
+}
+
+.goal-card h3, .plan-card h3, .future-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #4a6cf7;
+}
+
+.goal-card p, .plan-card p, .future-card p {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: #4a6cf7;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border: 4px solid #4a6cf7;
+    border-radius: 50%;
+    top: 15px;
+    z-index: 1;
+}
+
+.left {
+    left: 0;
+}
+
+.right {
+    left: 50%;
+}
+
+.left::after {
+    right: -10px;
+}
+
+.right::after {
+    left: -10px;
+}
+
+.timeline-content {
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.timeline-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #4a6cf7;
+}
+
+/* 목표 섹션 (병합된) */
+.goals-section {
+    margin-top: 60px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.goals-section h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.goals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.goal-item {
+    background-color: #f9f9f9;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.goal-item h3 {
+    font-size: 1.3rem;
+    color: #4a6cf7;
+    margin-bottom: 15px;
+}
+
+.goal-item p {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.goal-item ul {
+    margin-left: 20px;
+}
+
+.goal-item li {
+    margin-bottom: 8px;
+    list-style-type: disc;
+}
+
+/* 역량 분석 섹션 */
+.competency-analysis {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.competency-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.competency-card h3 {
+    font-size: 1.5rem;
+    color: #4a6cf7;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.competency-item {
+    margin-bottom: 25px;
+}
+
+.competency-item h4 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.competency-item h4 span {
+    background-color: #4a6cf7;
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    font-size: 0.9rem;
+}
+
+.competency-item p {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.competency-progress {
+    height: 8px;
+    background-color: #eee;
+    border-radius: 4px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #4a6cf7;
+    border-radius: 4px;
+}
+
+.competency-level {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    font-size: 0.8rem;
+    color: #999;
+}
+
+/* STAR-L 모달 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: 10px;
     width: 80%;
     max-width: 800px;
-    margin: 50px 0;
-    padding: 20px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    text-align: center;
-  }
-  
-  .item h2 {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    animation: modalopen 0.4s;
+}
+
+@keyframes modalopen {
+    from {opacity: 0; transform: translateY(-50px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+.close-modal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-modal:hover {
+    color: #333;
+}
+
+.modal-header {
     margin-bottom: 20px;
-    font-size: 1.5em;
-    color: #007BFF;
-  }
-  
-  .item p {
-    margin: 10px 0;
-    font-size: 1em;
-    line-height: 1.5;
-  }
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-header h2 {
+    color: #4a6cf7;
+    font-size: 1.8rem;
+}
+
+.star-l-section {
+    margin-bottom: 20px;
+}
+
+.star-l-section h3 {
+    font-size: 1.3rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.star-l-section p {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.star-l-section ul {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+.star-l-section li {
+    margin-bottom: 8px;
+    color: #666;
+    list-style-type: disc;
+}
+
+/* 푸터 */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+}
+
+.footer-content p {
+    margin-bottom: 10px;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 992px) {
+    .about-content {
+        flex-direction: column;
+    }
+    
+    .projects-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .timeline::after {
+        left: 31px;
+    }
+    
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+    
+    .timeline-item::after {
+        left: 21px;
+    }
+    
+    .left::after, .right::after {
+        left: 21px;
+    }
+    
+    .right {
+        left: 0;
+    }
+    
+    .competency-analysis {
+        grid-template-columns: 1fr;
+    }
+    
+    .skills-row {
+        flex-direction: column;
+    }
+    
+    .skills-row:nth-child(2) {
+        padding: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background-color: white;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: left 0.3s;
+    }
+    
+    .nav-links.active {
+        left: 0;
+    }
+    
+    .nav-links li {
+        margin: 15px 0;
+    }
+    
+    .menu-btn {
+        display: block;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .profile-table th {
+        width: 40%;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+    }
+    
+    .goals-grid {
+        grid-template-columns: 1fr;
+    }
+}
