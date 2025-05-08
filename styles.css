@@ -378,24 +378,36 @@ nav {
     color: #666;
 }
 
-.core-competencies {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 10px;
+/* 필요 역량 컨테이너 */
+.required-competencies {
+    margin-top: 15px;
+    background-color: #f8f9ff;
+    padding: 15px;
+    border-radius: 8px;
 }
 
-.core-competencies span {
+.required-competencies h4 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #4a6cf7;
+}
+
+.competency-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.competency-tags span {
     background-color: #4a6cf7;
     color: white;
     padding: 5px 10px;
     border-radius: 5px;
-    margin-right: 10px;
-    margin-bottom: 5px;
     font-size: 0.9rem;
 }
 
 /* 새로운 섹션 스타일 */
-.career-goals, .plan, .future {
+.career-goals, .plan, .future, .qa {
     padding: 80px 0;
 }
 
@@ -409,6 +421,10 @@ nav {
 
 .future {
     background-color: #f5f8ff;
+}
+
+.qa {
+    background-color: white;
 }
 
 .career-goals-container, .plan-container, .future-container {
@@ -635,6 +651,111 @@ nav {
     color: #999;
 }
 
+/* Q&A 섹션 */
+.qa-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.qa-form, .qa-list {
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.qa-form h3, .qa-list h3 {
+    font-size: 1.5rem;
+    color: #4a6cf7;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.submit-btn {
+    background-color: #4a6cf7;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #3a5bd9;
+}
+
+.qa-item {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+}
+
+.qa-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.qa-question h4 {
+    font-size: 1.1rem;
+    color: #333;
+    margin: 0;
+}
+
+.toggle-btn {
+    font-size: 1.5rem;
+    color: #4a6cf7;
+    transition: transform 0.3s;
+}
+
+.qa-answer {
+    margin-top: 15px;
+    display: none;
+    padding: 10px;
+    background-color: #f9f9ff;
+    border-radius: 5px;
+}
+
+.qa-answer p {
+    color: #666;
+    margin: 0;
+}
+
+.qa-item.active .toggle-btn {
+    transform: rotate(45deg);
+}
+
+.qa-item.active .qa-answer {
+    display: block;
+}
+
 /* STAR-L 모달 */
 .modal {
     display: none;
@@ -695,6 +816,12 @@ nav {
     font-size: 1.3rem;
     color: #333;
     margin-bottom: 10px;
+}
+
+.star-l-section h4 {
+    font-size: 1.1rem;
+    color: #4a6cf7;
+    margin: 15px 0 10px;
 }
 
 .star-l-section p {
@@ -767,6 +894,10 @@ footer {
     
     .skills-row:nth-child(2) {
         padding: 0;
+    }
+    
+    .qa-container {
+        grid-template-columns: 1fr;
     }
 }
 
